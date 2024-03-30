@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 #background-video {
+    position: relative;
     width: 100vw;
     height: 100vh;
-    object-fit:cover;
+    object-fit:fill;
     position: fixed;
-    background-attachment: fixed;
     left: 0;
     right: 0;
     top: 0;
@@ -15,3 +17,6 @@
     z-index: -1;
   }
   
+  #root{
+    position: relative;
+  }

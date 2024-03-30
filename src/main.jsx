@@ -6,8 +6,8 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    
   </React.StrictMode>,
 )
-
 let vid = document.getElementById("myVideo");
 vid.playbackRate = 0.5

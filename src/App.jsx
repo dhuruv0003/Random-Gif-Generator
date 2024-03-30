@@ -7,8 +7,13 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
-      
+    <div className='w-full h-screen flex flex-col '>
+      <h1 className=' bg-white text-black text-center w-[50%] mx-auto rounded-lg
+      mt-10'>RANDOM GIFS</h1>
+      <div className="">
+        <Random/>
+        <Tag/>
+      </div>
     </div>
   )
 }
