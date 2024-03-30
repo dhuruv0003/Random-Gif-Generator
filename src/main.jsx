@@ -8,3 +8,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+let vid = document.getElementById("myVideo");
+vid.playbackRate = 0.5
