@@ -1,11 +1,33 @@
-import { useState } from "react"
+import axios from "axios";
+import { useEffect, useState } 
+from "react"
+
 
 export default function Random() {
 
     const [gif , setgif]=useState("")
 
-    function clickhandler(){
+    const API_KEY='oQZcs2KS8o1ibPzy8XOE7ySIurMyJosF'   
 
+    async function fetchData(){
+        const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
+            
+        // axios.get() returns a promise 
+
+        const {data}=await axios.get(url)
+        // {data} se hame api ka data wala element mil gya h
+        // Ab hame uske andar se url nikalna hai 
+
+        const imgsrc=data.data.images.downsized_large.url
+        setgif(imgsrc)
+    }
+
+    useEffect(()=>{
+        fetchData();
+    },[])
+
+    function clickhandler(){
+        
     }
 
     return ( 
