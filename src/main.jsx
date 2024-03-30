@@ -9,5 +9,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
   </React.StrictMode>,
 )
-let vid = document.getElementById("myVideo");
+let vid = document.getElementById("background-video");
 vid.playbackRate = 0.5
