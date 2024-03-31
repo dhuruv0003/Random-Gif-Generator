@@ -27,7 +27,7 @@ export default function Tag() {
     return (
         <div className="sm:w-2/3 w-3/4 min-h-[350px]  rounded-lg p-3 bg-white shadow-md flex flex-col mx-auto items-center gap-y-5 mt-[15px] shadow-[#bc6868]">
 
-            <h1>Random Gif of {tag}</h1>
+            <h1 className="text-2xl uppercase underline font-bold >Random Gif of {tag}</h1>
 
             {
                 loading ? (<Spinner />) : (<img src={gif} alt="GIF" width="450" />)
