@@ -5,7 +5,7 @@ import useGif from "../hooks/usegif";
 
 export default function Tag() {
 
-    const [tag, settag] = useState("")
+    const [tag, settag] = useState("car")
     const {loading, gif,fetchData}=useGif(tag);
 
 
