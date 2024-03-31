@@ -2,37 +2,40 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import Spinner from "./Spinner";
 
-export default function Tag(){
+export default function Tag() {
 
-    const [tag,settag]=useState("")
-    const [loading, setloading]=useState(false)
-    const[gif,setgif]=useState("")
+    const [tag, settag] = useState("")
+    const [loading, setloading] = useState(false)
+    const [gif, setgif] = useState("")
 
-    const API_KEY = 'olMAEV8K4xiKmqapN9OLDPGghNj3nSxX'
+    const API_KEY = 'c8OFoOD0mNfNXwObyKIgm0Q3wwVMqDXa'
 
-    async function fetchData(){
+    async function fetchData() {
         setloading(true);
-        const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
-        const {data}=await axios.get(url);
-        const imgsrc = data.data.images.downsized_large.url
+        const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
+        const { data } = await axios.get(url);
+        const imgsrc = data.data.images.downsized_large.url;
         setgif(imgsrc)
         setloading(false);
     }
 
-useEffect(()=>{
-    fetchData();
-},[]);
+    useEffect(() => {
+        fetchData();
+    }, []);
 
 
-    return(
-        <div className="w-3/4  rounded-lg p-3 bg-white shadow-md flex flex-col mx-auto items-center gap-y-5 mt-[15px] shadow-[#bc6868]">
-            
-            <h1>Random Gif</h1>
-            
+    return (
+        <div className="sm:w-2/3 w-3/4   rounded-lg p-3 bg-white shadow-md flex flex-col mx-auto items-center gap-y-5 mt-[15px] shadow-[#bc6868]">
+
+            <h1>Random Gif of {tag}</h1>
+
             {
-                loading?(<Spinner/>):(<img  src={gif} alt="GIF" width="450" />)
+                loading ? (<Spinner />) : (<img src={gif} alt="GIF" width="450" />)
             }
-            <button onClick={()=>fetchData()}>Generate</button>
+
+            <input type="text" className="border border-black w-[70%] rounded-lg p-1" placeholder="Enter text" onChange={(event)=>settag(event.target.value)} />
+
+            <button className="bg-black w-[70%] p-1 rounded-lg text-white" onClick={() => fetchData()}>Generate</button>
         </div>
     )
 }

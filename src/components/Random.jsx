@@ -8,7 +8,7 @@ export default function Random() {
     const [gif, setgif] = useState("")
     const [loading, setloading] = useState(false);
 
-    const API_KEY = 'HmJrhDm1Ga38Cj26DpfZJhYHLAbCxhYj'
+    const API_KEY = 'c8OFoOD0mNfNXwObyKIgm0Q3wwVMqDXa'
 
     async function fetchData() {
         setloading(true);
@@ -34,7 +34,7 @@ export default function Random() {
     }
 
     return (
-        <div className="w-3/4  rounded-lg p-3 bg-white shadow-md flex flex-col mx-auto items-center gap-y-5 mt-[15px] shadow-[#bc6868]">
+        <div className="sm:w-2/3  w-3/4  rounded-lg p-3 bg-white shadow-md flex flex-col mx-auto items-center gap-y-5 mt-[15px] shadow-[#bc6868]">
             <h1 className="text-2xl uppercase underline font-bold ">A Random Gif</h1>
 
             {
