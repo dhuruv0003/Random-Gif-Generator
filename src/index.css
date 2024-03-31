@@ -10,6 +10,7 @@
     height: 100vh;
     object-fit:fill;
     position: fixed;
+    background-attachment: fixed;
     left: 0;
     right: 0;
     top: 0;
