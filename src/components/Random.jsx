@@ -8,7 +8,7 @@ export default function Random() {
     const [gif, setgif] = useState("")
     const [loading, setloading] = useState(false);
 
-    const API_KEY = 'c8OFoOD0mNfNXwObyKIgm0Q3wwVMqDXa'
+    const API_KEY = 'N4Jx8zcDRlJEGTJD7rMlmKvp011NWTeU'
 
     async function fetchData() {
         setloading(true);

@@ -8,7 +8,7 @@ export default function Tag() {
     const [loading, setloading] = useState(false)
     const [gif, setgif] = useState("")
 
-    const API_KEY = 'c8OFoOD0mNfNXwObyKIgm0Q3wwVMqDXa'
+    const API_KEY = 'rhv0W9y5jzm9BIvYTH2Txfs44pffmF3E'
 
     async function fetchData() {
         setloading(true);
