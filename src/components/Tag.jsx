@@ -1,27 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import Spinner from "./Spinner";
+import useGif from "../hooks/usegif";
 
 export default function Tag() {
 
     const [tag, settag] = useState("")
-    const [loading, setloading] = useState(false)
-    const [gif, setgif] = useState("")
+    const {loading, gif,fetchData}=useGif(tag);
 
-    const API_KEY = 'rhv0W9y5jzm9BIvYTH2Txfs44pffmF3E'
-
-    async function fetchData() {
-        setloading(true);
-        const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
-        const { data } = await axios.get(url);
-        const imgsrc = data.data.images.downsized_large.url;
-        setgif(imgsrc)
-        setloading(false);
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
 
 
     return (
@@ -33,9 +19,9 @@ export default function Tag() {
                 loading ? (<Spinner />) : (<img src={gif} alt="GIF" width="450" />)
             }
 
-            <input type="text" className="border border-black w-[70%] rounded-lg p-1" placeholder="Enter text" onChange={(event)=>settag(event.target.value)} />
+            <input type="text" className="border border-black w-[70%] rounded-lg p-1" placeholder="Enter text" onChange={(event)=>settag(event.target.value)} value={tag} />
 
-            <button className="bg-black w-[70%] p-1 rounded-lg text-white" onClick={() => fetchData()}>Generate</button>
+            <button className="bg-black w-[70%] p-1 rounded-lg text-white" onClick={() => fetchData(tag)}>Generate</button>
         </div>
     )
 }
